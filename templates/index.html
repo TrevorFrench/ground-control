@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web-based Terminal</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('form').submit(function(event) {
+                event.preventDefault(); // Prevent the form from submitting normally
+
+                var command = $('#command').val(); // Get the command from the input field
+
+                // Make an AJAX request to the server
+                $.ajax({
+                    type: 'POST',
+                    url: '/execute',
+                    data: { command: command },
+                    success: function(response) {
+                        $('#output').text(response); // Update the output with the response
+                    }
+                });
+
+                $('#command').val(''); // Clear the input field
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Web-based Terminal</h1>
+    <form>
+        <input type="text" id="command" autofocus>
+        <input type="submit" value="Execute">
+    </form>
+    <pre id="output"></pre>
+</body>
+</html>

@@ -1,0 +1,16 @@
+echo Hello, World!
+echo Hello, World!
+Hello, World!
+
+2 + 2
+'2' is not recognized as an internal or external command,
+operable program or batch file.
+
+echo Hello, World!
+Hello, World!
+
+ls
+app.py
+history.txt
+templates
+
